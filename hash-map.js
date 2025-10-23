@@ -5,6 +5,7 @@ export class HashMap {
     this.buckets = new Array(capacity);
   }
 
+  // Takes a key and produces a hash code
   hash(key) {
     let hashCode = 0;
 
@@ -13,6 +14,28 @@ export class HashMap {
       hashCode = primeNumber * hashCode + key.charCodeAt(i);
     }
 
-    return hashCode;
+    return hashCode % this.capacity;
+  }
+
+  // Add new bucket
+  set(key, value) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+
+    // If bucket is empty
+    if (!bucket) {
+      this.buckets[index] = [[key, value]];
+      return;
+    }
+
+    // Otherwise, if bucket is not empty
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        bucket[i][1] = value;
+        return;
+      }
+    }
+
+    bucket.push([key, value]);
   }
 }
