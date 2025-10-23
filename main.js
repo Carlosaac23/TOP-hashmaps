@@ -16,3 +16,8 @@ test.set('kite', 'pink');
 test.set('lion', 'golden');
 
 console.log(test);
+
+// Get a value
+console.log(test.get('carrot')); // orange
+console.log(test.get('ice cream')); // white
+console.log(test.get('jacket')); // blue
