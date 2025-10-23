@@ -1,23 +1,23 @@
 import { HashMap } from './hash-map.js';
 
-const test = new HashMap();
+const list = new HashMap();
 
-test.set('apple', 'red');
-test.set('banana', 'yellow');
-test.set('carrot', 'orange');
-test.set('dog', 'brown');
-test.set('elephant', 'gray');
-test.set('frog', 'green');
-test.set('grape', 'purple');
-test.set('hat', 'black');
-test.set('ice cream', 'white');
-test.set('jacket', 'blue');
-test.set('kite', 'pink');
-test.set('lion', 'golden');
+list.set('apple', 'red');
+list.set('banana', 'yellow');
+list.set('carrot', 'orange');
+list.set('dog', 'brown');
+list.set('elephant', 'gray');
+list.set('frog', 'green');
+list.set('grape', 'purple');
+list.set('hat', 'black');
+list.set('ice cream', 'white');
+list.set('jacket', 'blue');
+list.set('kite', 'pink');
+list.set('lion', 'golden');
 
-console.log(test);
+console.log(list);
 
 // Get a value
-console.log(test.get('carrot')); // orange
-console.log(test.get('ice cream')); // white
-console.log(test.get('jacket')); // blue
+console.log(list.get('carrot')); // orange
+console.log(list.get('ice cream')); // white
+console.log(list.get('jacket')); // blue
