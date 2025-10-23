@@ -30,10 +30,7 @@ export class HashMap {
 
     // Otherwise, if bucket is not empty
     for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) {
-        bucket[i][1] = value;
-        return;
-      }
+      if (bucket[i][0] === key) return (bucket[i][1] = value);
     }
 
     bucket.push([key, value]);
@@ -46,11 +43,22 @@ export class HashMap {
     if (!bucket) return null;
 
     for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) {
-        return bucket[i][1];
-      }
+      if (bucket[i][0] === key) return bucket[i][1];
     }
 
     return null;
+  }
+
+  // Return true or false if the given key it is in the hash map
+  has(key) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+    if (!bucket) return false;
+
+    for (const pair of bucket) {
+      if (pair[0] === key) return true;
+    }
+
+    return false;
   }
 }
