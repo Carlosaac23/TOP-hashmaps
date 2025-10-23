@@ -38,4 +38,19 @@ export class HashMap {
 
     bucket.push([key, value]);
   }
+
+  // Return the value that is assigned to this key
+  get(key) {
+    const index = this.hash(key);
+    const bucket = this.buckets[index];
+    if (!bucket) return null;
+
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return bucket[i][1];
+      }
+    }
+
+    return null;
+  }
 }
