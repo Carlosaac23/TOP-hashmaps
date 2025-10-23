@@ -21,3 +21,7 @@ console.log(list);
 console.log(list.get('carrot')); // orange
 console.log(list.get('ice cream')); // white
 console.log(list.get('jacket')); // blue
+
+// Return true or false if the key is in the list
+console.log(list.has('apple')); // true
+console.log(list.has('shark')); // false
