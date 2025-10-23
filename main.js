@@ -25,3 +25,8 @@ console.log(list.get('jacket')); // blue
 // Return true or false if the key is in the list
 console.log(list.has('apple')); // true
 console.log(list.has('shark')); // false
+
+// Remove the pair with the given key and return true, otherwise return false
+console.log(list.remove('shark')); // false
+console.log(list.remove('kite')); // true
+console.log(list);
