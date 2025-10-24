@@ -118,8 +118,7 @@ export class HashMap {
 
   // Remove all entries in the hash map
   clear() {
-    const length = this.buckets.length;
-    this.buckets.splice(0, length);
+    this.buckets = new Array(this.capacity);
   }
 
   // Return an array containing all the keys in the hash map
