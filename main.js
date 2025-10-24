@@ -33,7 +33,7 @@ console.log(list.remove('kite')); // true
 console.log(list);
 
 // Return the length of the hash map
-console.log('Length of the hash map: ', list.length()); // 11
+console.log('Length of the hash map: ', list.length()); // 12
 
 // Remove all entries in the hash map
 // list.clear();
