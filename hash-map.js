@@ -1,6 +1,6 @@
 export class HashMap {
-  constructor(load_factor = 0.75, capacity = 16) {
-    this.load_factor = load_factor;
+  constructor(loadFactor = 0.75, capacity = 16) {
+    this.loadFactor = loadFactor;
     this.capacity = capacity;
     this.buckets = new Array(capacity);
   }
@@ -42,6 +42,20 @@ export class HashMap {
 
     // Add other bucket with the same key (collision)
     bucket.push([key, value]);
+
+    // If the hash map reaches the limit (capacity * loadFactor), double the hash map
+    const limit = this.capacity * this.loadFactor;
+    if (this.length() > limit) {
+      // Current entries
+      const entries = this.entries();
+      this.capacity *= 2;
+      this.buckets = new Array(this.capacity);
+
+      // Traverse the new array and add each pair to the new doubled-size buckets
+      for (const [key, value] of entries) {
+        this.set(key, value);
+      }
+    }
   }
 
   // Return the value that is assigned to this key
