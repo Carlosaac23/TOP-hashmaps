@@ -10,10 +10,11 @@ list.set('elephant', 'gray');
 list.set('frog', 'green');
 list.set('grape', 'purple');
 list.set('hat', 'black');
-list.set('ice cream', 'white');
+list.set('ice cream', 'oreo');
 list.set('jacket', 'blue');
-list.set('kite', 'pink');
+list.set('kite', 'rose');
 list.set('lion', 'golden');
+list.set('moon', 'silver');
 
 console.log(list);
 
@@ -40,3 +41,9 @@ console.log(list.length()); // 11
 
 // Return an array containing all the keys inside the hash map
 console.log(list.keys()); // ["elephant", "carrot", "frog", "banana", "apple", "grape", "hat", "dog", "lion", "ice cream", "jacket"]
+
+// Return an array containing all the values in the hash map
+console.log(list.values()); // ['gray', 'orange', 'green', 'yellow', 'red', 'purple', 'black', 'brown', 'golden', 'white', 'blue',];
+
+// Return an array containing all the pairs in the hash map
+console.log(list.entries());
