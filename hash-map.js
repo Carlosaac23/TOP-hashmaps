@@ -167,9 +167,3 @@ export class HashMap {
     return pairs;
   }
 }
-
-// const test = new HashMap();
-// test.set('key', 'value');
-// test.set('dog', 'value2');
-// test.set('lion', 'value3');
-// console.log(test.entries());
