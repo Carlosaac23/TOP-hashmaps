@@ -26,17 +26,18 @@ export class HashMap {
       throw new Error('Trying to access index out of bounds.');
     }
 
-    // If bucket is empty
+    // If bucket is empty, add new bucket
     if (!bucket) {
       this.buckets[index] = [[key, value]];
       return;
     }
 
-    // Otherwise, if bucket is not empty
+    // Otherwise, if bucket is not empty, update the value
     for (let i = 0; i < bucket.length; i++) {
       if (bucket[i][0] === key) return (bucket[i][1] = value);
     }
 
+    // Add other bucket with the same key (collision)
     bucket.push([key, value]);
   }
 
@@ -98,7 +99,7 @@ export class HashMap {
     return false;
   }
 
-  // Returns the number of stored keys in the list
+  // Returns the number of stored keys in the hash map
   length() {
     let keys = 0;
 
@@ -111,4 +112,31 @@ export class HashMap {
 
     return keys;
   }
+
+  // Remove all entries in the hash map
+  clear() {
+    const length = this.buckets.length;
+    this.buckets.splice(0, length);
+  }
+
+  // Return an array containing all the keys inside the hash map
+  keys() {
+    let keys = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        for (const pair of bucket) {
+          keys.push(pair[0]);
+        }
+      }
+    }
+
+    return keys;
+  }
 }
+
+// const test = new HashMap();
+// test.set('key', 'value');
+// test.set('dog', 'value2');
+// test.set('lion', 'value3');
+// console.log(test.keys());
