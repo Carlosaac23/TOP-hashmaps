@@ -30,3 +30,6 @@ console.log(list.has('shark')); // false
 console.log(list.remove('shark')); // false
 console.log(list.remove('kite')); // true
 console.log(list);
+
+// Return the length of the list
+console.log(list.length());
