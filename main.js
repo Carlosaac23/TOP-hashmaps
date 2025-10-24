@@ -32,4 +32,4 @@ console.log(list.remove('kite')); // true
 console.log(list);
 
 // Return the length of the list
-console.log(list.length());
+console.log(list.length()); // 11
