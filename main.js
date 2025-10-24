@@ -22,7 +22,7 @@ console.log(list.get('carrot')); // orange
 console.log(list.get('ice cream')); // white
 console.log(list.get('jacket')); // blue
 
-// Return true or false if the key is in the list
+// Return true or false if the key is in the hash map
 console.log(list.has('apple')); // true
 console.log(list.has('shark')); // false
 
@@ -31,5 +31,12 @@ console.log(list.remove('shark')); // false
 console.log(list.remove('kite')); // true
 console.log(list);
 
-// Return the length of the list
+// Return the length of the hash map
 console.log(list.length()); // 11
+
+// Remove all entries in the hash map
+// list.clear();
+// console.log(list.length()); // 0
+
+// Return an array containing all the keys inside the hash map
+console.log(list.keys()); // ["elephant", "carrot", "frog", "banana", "apple", "grape", "hat", "dog", "lion", "ice cream", "jacket"]
