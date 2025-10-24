@@ -22,6 +22,10 @@ export class HashMap {
     const index = this.hash(key);
     const bucket = this.buckets[index];
 
+    if (index < 0 || index > this.buckets.length) {
+      throw new Error('Trying to access index out of bounds.');
+    }
+
     // If bucket is empty
     if (!bucket) {
       this.buckets[index] = [[key, value]];
@@ -40,6 +44,11 @@ export class HashMap {
   get(key) {
     const index = this.hash(key);
     const bucket = this.buckets[index];
+
+    if (index < 0 || index > this.buckets.length) {
+      throw new Error('Trying to access index out of bounds.');
+    }
+
     if (!bucket) return null;
 
     for (let i = 0; i < bucket.length; i++) {
@@ -53,6 +62,11 @@ export class HashMap {
   has(key) {
     const index = this.hash(key);
     const bucket = this.buckets[index];
+
+    if (index < 0 || index > this.buckets.length) {
+      throw new Error('Trying to access index out of bounds.');
+    }
+
     if (!bucket) return false;
 
     for (const pair of bucket) {
@@ -65,6 +79,11 @@ export class HashMap {
   remove(key) {
     const index = this.hash(key);
     const bucket = this.buckets[index];
+
+    if (index < 0 || index > this.buckets.length) {
+      throw new Error('Trying to access index out of bounds.');
+    }
+
     if (!bucket) return false;
 
     for (let i = 0; i < bucket.length; i++) {
