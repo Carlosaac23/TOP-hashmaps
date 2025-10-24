@@ -22,7 +22,7 @@ export class HashMap {
     const index = this.hash(key);
     const bucket = this.buckets[index];
 
-    if (index < 0 || index > this.buckets.length) {
+    if (index < 0 || index >= this.buckets.length) {
       throw new Error('Trying to access index out of bounds.');
     }
 
@@ -45,7 +45,7 @@ export class HashMap {
     const index = this.hash(key);
     const bucket = this.buckets[index];
 
-    if (index < 0 || index > this.buckets.length) {
+    if (index < 0 || index >= this.buckets.length) {
       throw new Error('Trying to access index out of bounds.');
     }
 
@@ -63,7 +63,7 @@ export class HashMap {
     const index = this.hash(key);
     const bucket = this.buckets[index];
 
-    if (index < 0 || index > this.buckets.length) {
+    if (index < 0 || index >= this.buckets.length) {
       throw new Error('Trying to access index out of bounds.');
     }
 
@@ -76,11 +76,13 @@ export class HashMap {
     return false;
   }
 
+  // If the given key is in the hash map, it should remove the entry with that key and return true.
+  // If the key isn’t in the hash map, it should return false.
   remove(key) {
     const index = this.hash(key);
     const bucket = this.buckets[index];
 
-    if (index < 0 || index > this.buckets.length) {
+    if (index < 0 || index >= this.buckets.length) {
       throw new Error('Trying to access index out of bounds.');
     }
 
@@ -94,5 +96,19 @@ export class HashMap {
     }
 
     return false;
+  }
+
+  // Returns the number of stored keys in the list
+  length() {
+    let keys = 0;
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      const bucket = this.buckets[i];
+      if (bucket) {
+        keys += bucket.length;
+      }
+    }
+
+    return keys;
   }
 }
