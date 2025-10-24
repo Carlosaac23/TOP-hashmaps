@@ -34,7 +34,10 @@ export class HashMap {
 
     // Otherwise, if bucket is not empty, update the value
     for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) return (bucket[i][1] = value);
+      if (bucket[i][0] === key) {
+        bucket[i][1] = value;
+        return;
+      }
     }
 
     // Add other bucket with the same key (collision)
