@@ -119,7 +119,7 @@ export class HashMap {
     this.buckets.splice(0, length);
   }
 
-  // Return an array containing all the keys inside the hash map
+  // Return an array containing all the keys in the hash map
   keys() {
     let keys = [];
 
@@ -133,10 +133,40 @@ export class HashMap {
 
     return keys;
   }
+
+  // Return an array containing all the values in the hash map
+  values() {
+    let values = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        for (const pair of bucket) {
+          values.push(pair[1]);
+        }
+      }
+    }
+
+    return values;
+  }
+
+  // Return an array that contains each pair in the hash map
+  entries() {
+    let pairs = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        for (const pair of bucket) {
+          pairs.push(pair);
+        }
+      }
+    }
+
+    return pairs;
+  }
 }
 
 // const test = new HashMap();
 // test.set('key', 'value');
 // test.set('dog', 'value2');
 // test.set('lion', 'value3');
-// console.log(test.keys());
+// console.log(test.entries());
